@@ -583,7 +583,7 @@ export default function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 backdrop-blur-md bg-black/70"
+              className="fixed inset-0 z-[100] flex items-center justify-center p-6 md:p-12 pt-24 md:pt-32 backdrop-blur-md bg-black/80"
               onClick={() => setSelectedPortfolioItem(null)}
             >
               <motion.div
@@ -591,21 +591,25 @@ export default function App() {
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 exit={{ scale: 0.9, opacity: 0, y: 20 }}
                 transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                className="relative w-full max-w-4xl max-h-[85vh] flex flex-col items-center gap-8"
+                className="relative w-full max-w-lg md:max-w-xl lg:max-w-2xl max-h-[65vh] md:max-h-[70vh] flex flex-col items-center gap-6 cursor-default"
                 onClick={e => e.stopPropagation()}
               >
-                <div className="w-full h-full glass rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] flex items-center justify-center p-2">
-                  <img 
-                    src={selectedPortfolioItem.imageUrl} 
-                    alt={selectedPortfolioItem.title}
-                    className="max-w-full max-h-full object-contain rounded-2xl"
-                    referrerPolicy="no-referrer"
-                  />
+                {/* Image Container */}
+                <div className="flex-1 min-h-0 w-full flex items-center justify-center">
+                  <div className="glass rounded-[32px] overflow-hidden shadow-[0_40px_80px_-15px_rgba(0,0,0,0.6)] flex items-center justify-center p-2 h-full w-auto max-w-full border border-white/10">
+                    <img 
+                      src={selectedPortfolioItem.imageUrl} 
+                      alt={selectedPortfolioItem.title}
+                      className="max-w-full max-h-full object-contain rounded-[24px]"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
                 </div>
 
+                {/* Close Button - Outside the image area, bottom centered */}
                 <button 
                   onClick={() => setSelectedPortfolioItem(null)}
-                  className="group w-14 h-14 rounded-full glass border border-white/20 flex items-center justify-center text-white hover:bg-brand-blue/20 transition-all hover:scale-110 shadow-2xl shrink-0"
+                  className="group w-12 h-12 md:w-14 md:h-14 rounded-full glass border border-white/20 flex items-center justify-center text-white hover:bg-brand-blue/20 transition-all hover:scale-110 shadow-2xl shrink-0"
                 >
                   <X size={24} className="group-hover:rotate-90 transition-transform duration-300" />
                 </button>
