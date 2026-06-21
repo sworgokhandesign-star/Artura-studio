@@ -359,15 +359,61 @@ export default function App() {
             ))}
           </div>
 
-          {/* Right: Contact Button */}
-          <a 
-            href="#contact" 
-            className="cta-button group px-5 py-2 md:px-6 md:py-2.5 rounded-full text-[9px] md:text-[10px] uppercase tracking-[2px] font-medium shrink-0"
-          >
-            Contact Us
-            <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform duration-[380ms] ease-out hidden sm:inline-block" />
-          </a>
+          {/* Right: Contact Button & Hamburger Toggle */}
+          <div className="flex items-center gap-3 md:gap-0">
+            {/* Hamburger / Menu toggle button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden text-text-dim hover:text-white transition-all duration-[380ms] ease-out p-1.5 rounded-full hover:bg-white/5 active:scale-95 focus:outline-none flex items-center justify-center shrink-0"
+              aria-label="Toggle navigation menu"
+            >
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+
+            <a 
+              href="#contact" 
+              className="cta-button group px-5 py-2 md:px-6 md:py-2.5 rounded-full text-[9px] md:text-[10px] uppercase tracking-[2px] font-medium shrink-0"
+            >
+              Contact Us
+              <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform duration-[380ms] ease-out hidden sm:inline-block" />
+            </a>
+          </div>
         </div>
+
+        {/* Mobile Dropdown Menu */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0, y: -10 }}
+              animate={{ opacity: 1, height: 'auto', y: 0 }}
+              exit={{ opacity: 0, height: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="mt-2 w-full rounded-[24px] overflow-hidden md:hidden flex flex-col items-center py-5 gap-1.5 shadow-2xl"
+              style={{
+                background: 'rgba(15, 15, 20, 0.85)',
+                backdropFilter: 'blur(20px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                border: '1px solid rgba(255, 255, 255, 0.08)'
+              }}
+            >
+              {[
+                { name: 'Home', href: '#hero' },
+                { name: 'Portfolio', href: '#portfolio' },
+                { name: 'Workflow', href: '#workflow' },
+                { name: 'Testimonials', href: '#testimonials' }
+              ].map((item) => (
+                <a 
+                  key={item.name} 
+                  href={item.href} 
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-text-dim hover:text-white transition-all duration-[300ms] ease-out text-[10px] uppercase tracking-[3px] font-medium py-3 w-full text-center hover:bg-white/[0.03]"
+                >
+                  {item.name}
+                </a>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       <main className="relative z-10 text-center overflow-x-hidden">
