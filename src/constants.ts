@@ -52,8 +52,8 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
 ];
 
 export const METRICS: Metric[] = [
-  { label: 'Creators & Brands Served', value: 65, suffix: '+' },
-  { label: 'Designs Delivered', value: 3500, suffix: '+' },
+  { label: 'Creators & Brands Served', value: 73, suffix: '+' },
+  { label: 'Designs Delivered', value: 4200, suffix: '+' },
   { label: 'Client Satisfaction', value: 100, suffix: '%' },
   { label: 'Fast Delivery', value: 24, suffix: '–48H' }
 ];
