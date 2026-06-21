@@ -311,7 +311,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen text-brand-white selection:bg-brand-blue/30 font-sans outline-none overflow-hidden bg-transparent">
+    <div className="relative min-h-screen text-brand-white selection:bg-brand-blue/30 font-sans outline-none bg-transparent">
       {/* Subtle Noise Texture Overlay */}
       <div className="noise-overlay" />
 
