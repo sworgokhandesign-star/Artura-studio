@@ -332,9 +332,15 @@ export default function App() {
       <nav className={`fixed left-0 right-0 mx-auto z-50 w-[92%] max-w-5xl transition-[top] duration-300 ease-out flex flex-col ${
         scrolled ? 'top-3' : 'top-5'
       }`}>
-        <div className={`w-full rounded-[999px] flex items-center justify-between px-6 py-2.5 transition-[background-color,box-shadow] duration-300 ease-out ${
-          scrolled ? 'glass-navbar-scrolled' : 'glass-navbar'
-        }`}>
+        <div 
+          className={`w-full rounded-[999px] flex items-center justify-between px-6 py-2.5 transition-[background-color,box-shadow] duration-300 ease-out ${
+            scrolled ? 'glass-navbar-scrolled' : 'glass-navbar'
+          }`}
+          style={{
+            backdropFilter: 'blur(20px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(20px) saturate(180%)'
+          }}
+        >
           {/* Left: Logo */}
           <a href="#hero" className="flex items-center cursor-pointer shrink-0">
             <img src="https://lh3.googleusercontent.com/u/0/d/1ZfkSGJFlWH6yEwOJyUTRtv3wU3qNguck" alt="Artura" className="h-[18px] md:h-[24px] w-auto object-contain transition-transform duration-[380ms] ease-out hover:scale-105" referrerPolicy="no-referrer" />
