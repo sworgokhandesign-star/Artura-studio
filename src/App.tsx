@@ -350,6 +350,7 @@ export default function App() {
           <div className="hidden md:flex items-center gap-8 lg:gap-12 text-[10px] uppercase tracking-[3px] font-medium">
             {[
               { name: 'Home', href: '#hero' },
+              { name: 'About', href: '#about' },
               { name: 'Portfolio', href: '#portfolio' },
               { name: 'Workflow', href: '#workflow' },
               { name: 'Testimonials', href: '#testimonials' }
@@ -404,6 +405,7 @@ export default function App() {
             >
               {[
                 { name: 'Home', href: '#hero' },
+                { name: 'About', href: '#about' },
                 { name: 'Portfolio', href: '#portfolio' },
                 { name: 'Workflow', href: '#workflow' },
                 { name: 'Testimonials', href: '#testimonials' }
@@ -490,6 +492,92 @@ export default function App() {
                 View Portfolio
               </a>
             </motion.div>
+          </div>
+        </section>
+
+        {/* SECTION: ABOUT */}
+        <section id="about" className="px-4 py-16 md:py-[120px] max-w-6xl mx-auto overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left Column: Avatar Image */}
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="md:col-span-5 flex flex-col items-center md:items-start text-center md:text-left"
+            >
+              <div className="relative group/avatar w-full max-w-[340px] sm:max-w-[380px] md:max-w-full">
+                {/* Subtle backglow */}
+                <div className="absolute -inset-2 bg-gradient-to-r from-brand-blue/20 to-[#3e85ff]/10 rounded-[32px] blur-xl opacity-50 group-hover/avatar:opacity-85 transition-opacity duration-500" />
+                
+                {/* Main Image Frame */}
+                <div className="relative aspect-square w-full rounded-[24px] md:rounded-[32px] overflow-hidden glass shadow-2xl">
+                  <img 
+                    src="https://lh3.googleusercontent.com/u/0/d/1Fi626Cfvss8oDGFw7Y0fInzV1XanZtgg" 
+                    alt="Sworgo - Creative Director at Artura" 
+                    className="w-full h-full object-cover object-center transition-transform duration-[450ms] ease-out group-hover/avatar:scale-[1.05]"
+                    referrerPolicy="no-referrer"
+                  />
+                  {/* Subtle inner overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                </div>
+              </div>
+              
+              {/* Caption */}
+              <motion.p 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 0.8 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="mt-4 text-xs font-serif italic text-text-dim/80 tracking-wide flex items-center gap-2"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-blue" />
+                That’s my digital self.
+              </motion.p>
+            </motion.div>
+
+            {/* Right Column: Text Content */}
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+              className="md:col-span-7 flex flex-col text-left justify-center"
+            >
+              {/* Accent Label */}
+              <div className="flex items-center gap-3 text-[10px] uppercase tracking-[4px] font-bold text-brand-blue mb-6">
+                <span className="w-8 h-[1px] bg-brand-blue" />
+                <span>THE CREATIVE BEHIND ARTURA</span>
+              </div>
+
+              {/* Headline */}
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-semibold tracking-tight text-white leading-[1.2] mb-6">
+                Hi, I'm Sworgo. I Make Creators <span className="accent-serif-italic">Impossible</span> to Scroll Past.
+              </h2>
+
+              {/* Body Paragraphs */}
+              <div className="space-y-5 text-text-dim/90 text-sm md:text-base leading-relaxed font-sans font-normal">
+                <p>
+                  Self-taught designer with 4+ years in the game. I started Artura with one goal: help creators and brands look so premium that people have to click.
+                </p>
+                <p>
+                  I've delivered 4200+ designs across every niche that matters. I work closely with every client, so you're never just another project you're a brand we build together.
+                </p>
+              </div>
+
+              {/* Muted Closing Line */}
+              <div className="border-t border-white/10 pt-6 mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-text-dim/60 text-xs md:text-sm">
+                <span className="font-medium tracking-wide">
+                  Bangladeshi by roots 🇧🇩 Built for the world 🌍
+                </span>
+                <span className="text-[10px] uppercase tracking-[2px] text-brand-blue font-bold flex items-center gap-1.5 shrink-0">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e] animate-pulse" />
+                  Available for new projects
+                </span>
+              </div>
+            </motion.div>
+
           </div>
         </section>
 
